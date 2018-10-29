@@ -487,13 +487,13 @@ async function contactView(sender, indexPath, data) {
 
   let phoneNumbers = `### ${$l10n("contactViewPhoneLabel")}\n`;
   for (let phoneNumber of contact[0].phoneNumbers) {
-    let bar = $objc("CNLabeledValue")
+    let phoneNumberLabel = $objc("CNLabeledValue")
       .$localizedStringForLabel(phoneNumber.label)
       .rawValue();
 
     phoneNumbers +=
       "##### " +
-      bar +
+      phoneNumberLabel +
       "\n<a href='tel:" +
       phoneNumber.content +
       "'>" +
@@ -504,31 +504,31 @@ async function contactView(sender, indexPath, data) {
 
   let emailAddresses = `### ${$l10n("contactViewEmailLabel")}\n`;
   for (let emailAddress of contact[0].emailAddresses) {
-    let bar = $objc("CNLabeledValue")
+    let emailAddressLabel = $objc("CNLabeledValue")
       .$localizedStringForLabel(emailAddress.label)
       .rawValue();
 
-    emailAddresses += "##### " + bar + "\n" + emailAddress.content + "\n";
+    emailAddresses += "##### " + emailAddressLabel + "\n" + emailAddress.content + "\n";
   }
   emailAddresses += "\n";
 
   let adresses = `### ${$l10n("contactViewAddressesLabel")}\n`;
   for (let postalAdress of contact[0].postalAddresses) {
-    let bar = $objc("CNLabeledValue")
+    let postalAdressLabel = $objc("CNLabeledValue")
       .$localizedStringForLabel(postalAdress.label)
       .rawValue();
-    let foo = postalAdress.content.split(",");
+    let arPostalAdress = postalAdress.content.split(",");
     adresses +=
       "##### " +
-      bar +
+      postalAdressLabel +
       "\n" +
-      foo[0] +
+      arPostalAdress[0] +
       "\n" +
-      foo[5] +
+      arPostalAdress[5] +
       " " +
-      foo[2] +
+      arPostalAdress[2] +
       "\n" +
-      foo[6] +
+      arPostalAdress[6] +
       "\n";
   }
   adresses += "\n";
